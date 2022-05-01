@@ -601,6 +601,14 @@ html {
     .footer-info {
         text-align: center;
     }
+    
+    .footer-social {
+        flex-direction: column-reverse;
+    }
+
+    .footer-social span {
+        margin: 10px 0 0 0;
+    }
 }
 
 @media (max-width: 481px) {
