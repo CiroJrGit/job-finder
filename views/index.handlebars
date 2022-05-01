@@ -1,0 +1,66 @@
+<div id="top-container" class="container-fluid">
+    <div class="wrapper-container container d-flex flex-column">
+        <h1 id="main-title" class="text-center">Encontre o emprego que mais almeja conosco</h1>
+        <p id="main-subtitle" class="text-center">Somos o site com mais vagas de tecnologia no mercado, direcionados a home office</p>
+        <form id="search-form" class="form-inline" action="/" method="GET">
+            <div class="form-group col-md-10">
+                <input class="form-control" id="job" name="job" type="text" placeholder="Digite a vaga que está buscando" >
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" type="submit">Procurar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<section class="data-area">
+    <div class="container">
+        <div class="row data-list">
+            <div class="col-sm data-list-item">
+                <img class="data-icon" src="/img/data-posts.svg" alt="Number Posts">
+                <span class="counter" data-val="646">000</span>
+                <p>Vagas Postadas</p>
+            </div>
+            <div class="col-sm data-list-item">
+                <img class="data-icon" src="/img/data-filed.svg" alt="Number Found Jobs">
+                <span class="counter" data-val="275">000</span>
+                <p>Trabalhos Preenchidos</p>
+            </div>
+            <div class="col-sm data-list-item">
+                <img class="data-icon" src="/img/data-company.svg" alt="Number Companies">
+                <span class="counter" data-val="340">000</span>
+                <p>Empresas Parceiras</p>
+            </div>
+            <div class="col-sm data-list-item">
+                <img class="data-icon" src="/img/data-search.svg" alt="Number Searches">
+                <span class="counter" data-val="597">000</span>
+                <p>Buscas Semanais</p>
+            </div>
+        </div>
+    </div>
+</section>
+<main>
+    <div id="jobs-container" class="container">
+        <div class="row">
+            <div class="container col-md-11">
+                {{#if search}}
+                    <h2 id="job-list-title" class="text-center">Buscando por: {{search}}</h2>
+                {{else}}
+                    <h2 id="job-list-title" class="text-center">Vagas em destaque</h2>
+                {{/if}}
+                <ul id="job-list" class="list-group">
+                    {{#each jobs}}
+                        <li class="list-group-item {{#if dataValues.new_job}}new-job{{/if}}">
+                            <img src="/img/job-company.svg" alt="Company">
+                            <p>{{dataValues.company}}</p>
+                            <h2>{{dataValues.title}}</h2>
+                            <p>{{dataValues.schedule}}</p>
+                            <p>R$ {{dataValues.salary}},00</p>
+                            <span class="new-job-label">Nova</span>
+                            <a href="/jobs/view/{{dataValues.id}}" class="btn btn-primary">Ver vaga</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>

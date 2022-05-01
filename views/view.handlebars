@@ -1,0 +1,79 @@
+<div id="view-top-container" class="container-fluid">
+    <div class="wrapper-container container d-flex flex-column">
+        <form id="search-form" class="form-inline" action="/" method="GET">
+            <div class="form-group col-md-10">
+                <input class="form-control" id="job" name="job" type="text" placeholder="Digite a vaga que está buscando" >
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" type="submit">Procurar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="job-view-container" class="container">
+    <div class="row">
+        <div class="company-container container col-md-11 d-flex align-items-center">
+            <img src="/img/job-company.svg" alt="Company">
+            <div class="title-container">
+                <h1 class="main-color">{{job.dataValues.title}}</h1>
+                <p>
+                    <i class="fa-solid fa-building"></i>
+                    {{job.dataValues.company}}
+                    <i class="fa-solid fa-location-dot ml-1"></i>
+                    Localidade
+                </p>
+            </div>
+            <button class="fav-job" onclick="favToggle()">
+                <i id="favL" class="fa-regular fa-star active"></i>
+                <i id="favD" class="fa-solid fa-star"></i>
+            </button>
+        </div>
+        <div class="data-jobs container col-md-11">
+            <div class="grid-data-jobs row border">
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="/img/data-area.svg" alt="Icon Area">
+                        <div class="data-jobs-info">
+                            <span class="bold">Área de atuação</span>
+                            <span class="mb-0 fw-bold d-block text-dark">Tecnologia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="/img/data-salary.svg" alt="Icon Salary">
+                        <div class="data-jobs-info">
+                            <span class="bold">Salário</span>
+                            <span class="mb-0 fw-bold d-block text-dark">R$ {{job.dataValues.salary}},00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-md-0 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img src="/img/data-hour.svg" alt="Icon Hour">
+                        <div class="data-jobs-info">
+                            <span class="bold">Horário</span>
+                            <span class="mb-0 fw-bold d-block text-dark">{{job.dataValues.schedule}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-md-0">
+                    <div class="d-flex align-items-center">
+                        <img src="/img/data-contact.svg" alt="Icon contact">
+                        <div class="data-jobs-info">
+                            <span class="bold">Contato</span>
+                            <span class="mb-0 fw-bold d-block text-dark">{{job.dataValues.email}}</span>
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+        <div class="job-desc container col-md-11">
+            <h2 class=" bold">Descrição da vaga:</h2>
+            <p>{{job.dataValues.description}}</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam soluta quisquam nesciunt non voluptate delectus molestiae, accusamus libero quod provident quam excepturi natus. Illum ipsum dignissimos iure fuga quos mollitia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam soluta quisquam nesciunt non voluptate delectus molestiae, accusamus libero quod provident quam excepturi natus. Illum ipsum dignissimos iure fuga quos mollitia.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam soluta quisquam nesciunt non voluptate delectus molestiae, accusamus libero quod provident quam excepturi natus. Illum ipsum dignissimos iure fuga quos mollitia.</p>
+            <p>Para se canditar a esta vaga na <span class="bold main-color">{{job.dataValues.company}}</span>, envie um e-mail para <a href="mail:to{{job.dataValues.email}}">{{job.dataValues.email}}</a></p>
+        </div>
+    </div>
+</div>
